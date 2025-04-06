@@ -11,9 +11,9 @@ class BookRepository(private val bookDao: BookDao) {
     val allBooks: Flow<List<Book>> = bookDao.getAllBooks()
     
     // Get books by status
-    fun getBooksByStatus(status: String): Flow<List<Book>> {
-        return bookDao.getBooksByStatus(status)
-    }
+//    fun getBooksByStatus(status: String): Flow<List<Book>> {
+//        return bookDao.getBooksByStatus(status)
+//    }
     
     // Get book by ID
     suspend fun getBookById(id: Int): Book? {
@@ -35,8 +35,5 @@ class BookRepository(private val bookDao: BookDao) {
         bookDao.deleteBook(book)
     }
     
-    // Search for books by title or author
-    fun searchBooks(query: String): Flow<List<Book>> {
-        return bookDao.searchBooks(query)
-    }
+
 } 

@@ -42,11 +42,5 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
         return repository.getBookById(id)
     }
     
-    fun searchBooks(query: String): Flow<List<Book>> {
-        return repository.searchBooks(query)
-    }
-    
-    fun getBooksByStatus(status: String): Flow<List<Book>> {
-        return repository.getBooksByStatus(status)
-    }
+
 } 

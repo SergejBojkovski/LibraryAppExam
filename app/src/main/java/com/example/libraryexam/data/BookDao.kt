@@ -29,9 +29,4 @@ interface BookDao {
     @Delete
     suspend fun deleteBook(book: Book)
     
-    @Query("SELECT * FROM books WHERE status = :status ORDER BY title ASC")
-    fun getBooksByStatus(status: String): Flow<List<Book>>
-    
-    @Query("SELECT * FROM books WHERE title LIKE '%' || :searchQuery || '%' OR author LIKE '%' || :searchQuery || '%'")
-    fun searchBooks(searchQuery: String): Flow<List<Book>>
 } 

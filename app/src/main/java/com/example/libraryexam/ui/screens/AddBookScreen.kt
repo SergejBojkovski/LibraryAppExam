@@ -33,6 +33,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.libraryexam.data.Book
 import com.example.libraryexam.data.BookStatus
 import com.example.libraryexam.ui.viewmodels.BookViewModel
+import androidx.compose.runtime.saveable.rememberSaveable
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,7 +42,7 @@ fun AddBookScreen(
     onNavigateBack: () -> Unit,
     viewModel: BookViewModel = viewModel()
 ) {
-    var title by remember { mutableStateOf("") }
+    var title by rememberSaveable { mutableStateOf("") } // Remember when screen was rotated test
     var author by remember { mutableStateOf("") }
     var summary by remember { mutableStateOf("") }
     var yearPublished by remember { mutableStateOf("") }

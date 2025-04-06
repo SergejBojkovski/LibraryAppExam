@@ -14,7 +14,7 @@ data class Book(
     val author: String,
     val summary: String,
     val yearPublished: Int,
-    val status: String // In Stock, Rented Out
+    val status: String // can be In Stock, Rented Out
 )
 
 /**

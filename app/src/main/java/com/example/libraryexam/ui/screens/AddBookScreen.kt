@@ -16,7 +16,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -32,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.libraryexam.data.Book
 import com.example.libraryexam.data.BookStatus
+import com.example.libraryexam.ui.components.CustomTextField
 import com.example.libraryexam.ui.viewmodels.BookViewModel
 import androidx.compose.runtime.saveable.rememberSaveable
 
@@ -74,46 +74,42 @@ fun AddBookScreen(
                 .padding(16.dp)
                 .verticalScroll(rememberScrollState())
         ) {
-            OutlinedTextField(
+            CustomTextField(
                 value = title,
                 onValueChange = { title = it },
-                label = { Text("Title") },
-                modifier = Modifier.fillMaxWidth(),
+                label = "Title",
                 singleLine = true
             )
             
             Spacer(modifier = Modifier.height(16.dp))
             
-            OutlinedTextField(
+            CustomTextField(
                 value = author,
                 onValueChange = { author = it },
-                label = { Text("Author") },
-                modifier = Modifier.fillMaxWidth(),
+                label = "Author",
                 singleLine = true
             )
             
             Spacer(modifier = Modifier.height(16.dp))
             
-            OutlinedTextField(
+            CustomTextField(
                 value = summary,
                 onValueChange = { summary = it },
-                label = { Text("Summary") },
-                modifier = Modifier.fillMaxWidth(),
+                label = "Summary",
                 minLines = 3,
                 maxLines = 5
             )
             
             Spacer(modifier = Modifier.height(16.dp))
             
-            OutlinedTextField(
+            CustomTextField(
                 value = yearPublished,
                 onValueChange = {
                     yearPublished = it
                     yearError = it.isNotEmpty() && (it.toIntOrNull() == null || it.toInt() < 1000 || it.toInt() > 2100)
                 },
-                label = { Text("Year Published") },
+                label = "Year Published",
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
                 isError = yearError,
                 supportingText = { 
